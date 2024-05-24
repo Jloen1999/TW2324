@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Navegación Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <nav class="horizontal-menu">
+        <ul>
+            <li><a href="#" onclick="showContent('Inicio')">Inicio</a></li>
+            <li><a href="#" onclick="showContent('Servicios')">Servicios</a></li>
+            <li><a href="#" onclick="showContent('Productos')">Productos</a></li>
+            <li><a href="#" onclick="showContent('Contacto')">Contacto</a></li>
+            <li><a href="#" onclick="showContent('Sobre Nosotros')">Sobre Nosotros</a></li>
+        </ul>
+    </nav>
+</header>
+<aside>
+    <nav class="vertical-menu">
+        <ul>
+            <li><a href="#" onclick="showContent('Inicio')">Inicio</a></li>
+            <li><a href="#" onclick="showContent('Servicios')">Servicios</a></li>
+            <li><a href="#" onclick="showContent('Productos')">Productos</a></li>
+            <li><a href="#" onclick="showContent('Contacto')">Contacto</a></li>
+            <li><a href="#" onclick="showContent('Sobre Nosotros')">Sobre Nosotros</a></li>
+        </ul>
+    </nav>
+</aside>
+<main>
+    <section id="content">
+        <h1>Bienvenido</h1>
+        <p>Selecciona una opción del menu para ver más contenido</p>
+    </section>
+</main>
+<script src="scripts.js"></script>
+</body>
+</html>

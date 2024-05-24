@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hola Mundo con AJAX</title>
+<meta charset="UTF-8"> 
+<script type="text/javascript">
+fetch('https://pokeapi.co/api/v2/pokemon')
+      .then(response => response.json())
+      .then(json => document.write(json));
+
+</script>
+ 
+</head>
+<body>
+
+</body>
+</html>

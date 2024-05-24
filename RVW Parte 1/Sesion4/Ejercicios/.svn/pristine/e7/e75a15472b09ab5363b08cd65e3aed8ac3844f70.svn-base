@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Hola Mundo con AJAX, version 2</title> <script
+		type="text/javascript" language="javascript">
+		var READY_STATE_UNINITIALIZED = 0;
+		var READY_STATE_LOADING = 1;
+		var READY_STATE_LOADED = 2;
+		var READY_STATE_INTERACTIVE = 3;
+		var READY_STATE_COMPLETE = 4;
+
+		var peticion_http;
+
+		window.onload = function() {
+			document.getElementById('ComprobarDisponibilidad').onclick = descargaArchivo;
+		}
+
+		function crea_query_string() {
+			var login = document.getElementById("login");
+			var pass = document.getElementById("contrasena");
+
+			return "login=" + encodeURIComponent(login.value) + "&contrasena="
+					+ encodeURIComponent(pass.value) + "&nocache="
+					+ Math.random();
+		}
+
+		function cargaContenido(url, metodo, funcion) {
+			peticion_http = inicializa_xhr();
+
+			if (peticion_http) {
+				peticion_http.onreadystatechange = funcion;
+				peticion_http.open(metodo, url, true);
+				peticion_http.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded");
+				var query_string = crea_query_string();
+				peticion_http.send(query_string);
+			}
+		}
+
+		function inicializa_xhr() {
+			if (window.XMLHttpRequest) {
+				return new XMLHttpRequest();
+			} else if (window.ActiveXObject) {
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		}
+
+		function muestraContenido() {
+			if (peticion_http.readyState == READY_STATE_COMPLETE) {
+				if (peticion_http.status == 200) {
+					var login = document.getElementById("login").value;
+					var valor = peticion_http.responseText;
+					if (valor.indexOf("-si-") > -1) {
+						//if (peticion_http.responseText == "si") {
+						document.getElementById("respuesta").innerHTML = "El nombre elegido ["
+								+ login + "] está disponible";
+					} else {
+						document.getElementById("respuesta").innerHTML = "NO está disponible el nombre elegido ["
+								+ login + "]";
+					}
+				}
+
+			} else if (peticion_http.readyState == READY_STATE_LOADING) {
+				document.getElementById("respuesta").innerHTML = "Cargando";
+			}
+		}
+
+		function descargaArchivo() {
+			cargaContenido("/EjemploAjax/Login", "POST", muestraContenido);
+		}
+	</script>
+</head>
+<body>
+
+	<form>
+		<label for="login">login:</label> <input type="text" id="login"
+			name="login" /><br /> <label for="contrasena">Contraseña:</label> <input
+			type="password" id="contrasena" name="contrasena" /><br /> <input
+			type="button" id="ComprobarDisponibilidad"
+			value="ComprobarDisponibilidad" /> <input type="button" id="Login"
+			value="Login" />
+	</form>
+
+	<div id="respuesta"></div>
+</body>
+</html>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página princiapl</title>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+          body {
+              font-family: Arial, sans-serif;
+              margin: 20px;
+              background-color: white;
+              color: black;
+              display: grid;
+              justify-content: center;
+              align-items: center;
+          }
+          input {
+	          appearance: none;
+	          border: none;
+	          outline: none;
+	          border-bottom: .2em solid #e9a51e;
+	          background: rgba(#e9731e, .2);
+	          border-radius: 20em;
+	          padding: .4em;
+	          color: #e9871e;
+          }
+          .container {
+              max-width: 600px;
+              width: 500px;
+              margin: 0 auto;
+              border: 1px solid #ccc;
+              padding: 10px;
+              margin-bottom: 20px;
+              border-radius: 20px;
+              transition: box-shadow 0.3s ease-in-out;
+          }
+          footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .container:hover{
+              box-shadow: 0px 2px 130px rgba(255, 136, 0, 0.784);
+          }
+          textarea {
+              width: 100%;
+              height: 100px;
+              border-radius: 20px;
+          }
+          button{
+              border: 1px solid orange;
+              border-radius: 20px;
+              color: orange;
+              background-color: transparent;
+          }
+          button:hover{
+              background-color: orange;
+              color: white;
+              box-shadow: 0px 2px 20px rgba(255, 136, 0, 0.784);
+          }
+          #preview {
+            width: 100%;
+            height: 80%; 
+            border: 1px solid #ccc; 
+          }
+        </style>
+    </head>
+    <body>
+      <h1>Recopilación ejercicios Sesion1</h1>
+      <div class="container">
+        <h2>Ejercicio 3:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio 3/index.html','preview3')">Vista Previa</button>
+        <div id="preview3" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio 3/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 6:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio 6/index.html','preview6')">Vista Previa</button>
+        <div id="preview6" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio 6/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 9:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio9/index.html','preview9')">Vista Previa</button>
+        <div id="preview9" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio9/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 11:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio11/index.html','preview11')">Vista Previa</button>
+        <div id="preview11" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio11/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 12:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio12/index.html','preview12')">Vista Previa</button>
+        <div id="preview12" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio12/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 13:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio13/index.html','preview13')">Vista Previa</button>
+        <div id="preview13" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio13/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 14:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio14/index.html','preview14')">Vista Previa</button>
+        <div id="preview14" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio14/index.html'">Ir a página</button>
+      </div>
+
+      <div class="container">
+        <h2>Ejercicio 16:</h2>
+        <br>
+        <button onclick="toggleVistaPrevia('ejercicio16/index.html','preview16')">Vista Previa</button>
+        <div id="preview16" style="display: none;"></div>
+        <button onclick="window.location.href='ejercicio16/index.html'">Ir a página</button>
+      </div>
+
+    </body>
+    <footer style="align-content: center;">
+        <p>Curso 23-24. Tecnologías Webs. Pagina principal - Antonio Calvo Picón.</p>
+    </footer>
+    <script>
+      var vistaPreviaVisible = false;
+
+      function toggleVistaPrevia(url, divid) {
+        vistaPreviaVisible = !vistaPreviaVisible; // Cambia el estado de la vista previa
+        var previewDiv = document.getElementById(divid);
+
+        if (vistaPreviaVisible) {
+            // Muestra la vista previa
+            mostrarVistaPrevia(url, previewDiv);
+            previewDiv.style.display = "block"; // Hace visible el div
+        } else {
+            // Oculta la vista previa
+            previewDiv.innerHTML = ""; // Limpia cualquier contenido previo
+            previewDiv.style.display = "none"; // Oculta el div
+        }
+      }
+
+      function mostrarVistaPrevia(url, previewDiv) {
+        if (url.trim() !== "") {
+            var iframe = document.createElement("iframe");
+            iframe.src = url;
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            previewDiv.appendChild(iframe);
+        }
+      }
+
+
+  </script>
+</html>

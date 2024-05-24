@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Hola Mundo con AJAX, version 2</title>
+
+<script type="text/javascript" language="javascript">
+	var READY_STATE_UNINITIALIZED = 0;
+	var READY_STATE_LOADING = 1;
+	var READY_STATE_LOADED = 2;
+	var READY_STATE_INTERACTIVE = 3;
+	var READY_STATE_COMPLETE = 4;
+
+    var peticion_http=new XMLHttpRequest();
+
+	function cargaContenido(url, metodo, funcion) {
+			peticion_http.onreadystatechange = funcion;
+			peticion_http.open(metodo, url, true);
+			peticion_http.send(null);	
+	}
+	
+	function muestraContenido() {
+		if (peticion_http.readyState == READY_STATE_COMPLETE  && peticion_http.status == 200) {
+                setTimeout(() => {console.log('Después de todo!');}, 2000);
+				document.getElementById("myDiv").innerHTML = peticion_http.responseText;			
+		} else if (peticion_http.readyState == READY_STATE_LOADING) {
+			document.getElementById("myDiv").innerHTML = "Cargando";
+		}
+	}
+
+	function descargaArchivo() {
+		//  cargaContenido("https://pokeapi.co/api/v2/pokemon", "GET", muestraContenido);
+        cargaContenido("http://api.openweathermap.org/data/2.5/weather?q=Badajoz&appid=14c293857fefc5bfc79ee7cbe354ee57", "GET", muestraContenido);
+        //cargaContenido("http://programacion-cum.unex.es/generaContenidos.php", "GET", muestraContenido);
+	}
+</script>
+
+</head>
+<body>
+	<div id="myDiv">
+		<h2>Let AJAX change this text</h2>
+	</div>
+	<button type="button" onclick="descargaArchivo()">Cambiar contenido</button>
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Hola Mundo con AJAX, version 2</title> <script
+		type="text/javascript" language="javascript">
+		var READY_STATE_UNINITIALIZED = 0;
+		var READY_STATE_LOADING = 1;
+		var READY_STATE_LOADED = 2;
+		var READY_STATE_INTERACTIVE = 3;
+		var READY_STATE_COMPLETE = 4;
+
+		var peticion_http;
+
+		window.onload = function() {
+			document.getElementById('ComprobarDisponibilidad').onclick = descargaArchivo;
+		}
+
+		function crea_query_string() {
+			var login = document.getElementById("login");
+			var pass = document.getElementById("contrasena");
+
+			return "login=" + encodeURIComponent(login.value) + "&contrasena="
+					+ encodeURIComponent(pass.value) + "&nocache="
+					+ Math.random();
+		}
+
+		function cargaContenido(url, metodo, funcion) {
+			peticion_http = inicializa_xhr();
+
+			if (peticion_http) {
+				peticion_http.onreadystatechange = funcion;
+				peticion_http.open(metodo, url, true);
+				peticion_http.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded");
+				var query = crea_query_string();
+				peticion_http.send(query);
+			}
+		}
+
+		function inicializa_xhr() {
+			if (window.XMLHttpRequest) {
+				return new XMLHttpRequest();
+			} else if (window.ActiveXObject) {
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		}
+
+		function muestraContenido() {
+			if (peticion_http.readyState == READY_STATE_COMPLETE) {
+				if (peticion_http.status == 200) {
+
+					var respuesta_json = peticion_http.responseText;					
+					var objeto_json = eval("(" + respuesta_json + ")");
+					var login = objeto_json.resultado.login;
+					var username = objeto_json.resultado.username;
+
+					if (login == "SI") {
+						document.getElementById("respuesta").innerHTML = "El nombre elegido ["
+								+ username + "] está disponible";
+					} else {
+						document.getElementById("respuesta").innerHTML = "NO está disponible el nombre elegido ["
+								+ username + "]";
+					}
+				}
+
+			} else if (peticion_http.readyState == READY_STATE_LOADING) {
+				document.getElementById("respuesta").innerHTML = "Cargando";
+			}
+		}
+
+		function descargaArchivo() {
+			cargaContenido("/EjemploAjax/LoginJSON", "POST", muestraContenido);
+		}
+	</script>
+</head>
+<body>
+
+	<form>
+		<label for="login">login:</label> <input type="text" id="login"
+			name="login" /><br /> <label for="contrasena">Contraseña:</label> <input
+			type="password" id="contrasena" name="contrasena" /><br /> <input
+			type="button" id="ComprobarDisponibilidad"
+			value="ComprobarDisponibilidad" /> <input type="button" id="Login"
+			value="Login" />
+	</form>
+
+	<div id="respuesta"></div>
+</body>
+</html>
+

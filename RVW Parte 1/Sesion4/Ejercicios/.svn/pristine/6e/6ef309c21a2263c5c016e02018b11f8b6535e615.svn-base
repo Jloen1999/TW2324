@@ -1,0 +1,68 @@
+package es.unex.cum.mdai;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Parámetros
+ */
+@WebServlet("/Parametros")
+public class Parametros extends HttpServlet {
+	private static final long serialVersionUID = 2L;
+	protected void ProcessRequest(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html;charset=UTF-8");
+		Date fechaNac = null;
+		PrintWriter out = response.getWriter();
+		try {
+			// Se obtiene los parámetros
+			String fecha = request.getParameter("fecha_nacimiento");
+			String nombre = request.getParameter("nombre");
+
+			fechaNac = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+			
+	        Calendar fechaNacimiento = Calendar.getInstance();
+			// Se crea un objeto con la fecha actual
+			Calendar fechaActual = Calendar.getInstance();
+			// Se asigna la fecha recibida a la fecha de nacimiento.
+			fechaNacimiento.setTime(fechaNac);
+			// Se restan la fecha actual y la fecha de nacimiento
+			int anio = fechaActual.get(Calendar.YEAR)
+					- fechaNacimiento.get(Calendar.YEAR);
+			int mes = fechaActual.get(Calendar.MONTH)
+					- fechaNacimiento.get(Calendar.MONTH);
+			int dia = fechaActual.get(Calendar.DATE)
+					- fechaNacimiento.get(Calendar.DATE);
+			// Si está en ese año pero todavía no los ha cumplido
+			if (mes < 0 || (mes == 0 && dia < 0)) {
+				anio--;
+			}
+			System.out.println(nombre+" tiene "+anio+ "años");
+			out.print(nombre+" tiene "+anio+ "años");
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.print("Error en la fecha");
+		}
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		ProcessRequest(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		ProcessRequest(request, response);
+	}
+
+}

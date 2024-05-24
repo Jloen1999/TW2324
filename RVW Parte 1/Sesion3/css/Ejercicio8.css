@@ -1,0 +1,93 @@
+/* === IMPORTANTE ===================================================
+   No modificar estos estilos, ya que son imprescindibles para
+   que la p�gina se vea correctamente.
+   ================================================================== */
+
+/*-- B�sico ----------------------------------------------------------*/
+ul, ul li { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p, form { margin: 0; padding: 0; }
+.clear { clear: both; }
+img { border: none; }
+
+/*-- Layout ----------------------------------------------------------*/
+#contenedor {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#cabecera, #menu, #lateral, #contenido, #contenido #principal, #contenido #secundario, #pie {
+  border: 2px solid #777;
+}
+
+#cabecera { clear: both; }
+#menu { clear: both; }
+#lateral { float: left; width: 20%; }
+#contenido { float: right; width: 78%; }
+#contenido #principal { float: left; width: 75%; }
+#contenido #secundario { float: right; width: 20%; }
+#pie { clear: both; }
+
+/*-- Cabecera --------------------------------------------------------*/
+#cabecera #logo { float: left; }
+#cabecera #buscador { float: right; }
+
+/*-- Menu ------------------------------------------------------------*/
+#menu ul#menu_principal li { display: inline; float: left; }
+
+/*-- Secci�n Principal -----------------------------------------------*/
+#contenido #principal .articulo img { width: 100px; float: left; }
+
+/*-- Pie de p�gina ---------------------------------------------------*/
+#pie .enlaces   { float: left; }
+#pie .copyright { float: right; }
+
+/* === IMPORTANTE ===================================================
+   A partir de aqu�, se pueden a�adir todos los estilos propios que 
+   sean necesarios.
+   ================================================================== */
+#cabecera {padding: 1em;}  
+#menu {
+	padding: .5em;
+	padding-bottom: .2em;
+	}
+	
+#noticias, #publicidad, #principal, #secundario {padding: .2em;}
+#pie {padding: 0.5em 0em 0.5em 0em;}
+
+.articulo {margin-top: 1em;
+           margin-bottom: 1em;
+}
+
+.articulo img {margin: .5em;}
+
+#publicidad {margin-top: 1em;}
+
+#pie {margin-top: 1em;}
+
+#cabecera, #menu, #lateral, #contenido, #contenido #principal, #contenido #secundario, #pie 
+{border: 0;}
+
+#menu {border-bottom: 1px solid #004C99;}
+
+/*#noticias {border: 1px solid #C5C5C5;}
+
+#publicidad {border: 1px dotted #CC6600;} */
+
+#cabecera, #menu, #contenido, #lateral, #contenido #secundario, #contenido #principal{border: 1px solid #C5C5C5;}
+
+#contenido, #lateral {
+  margin-top: 5px;
+}
+
+#pie {
+border: dotted #C5C5C5;
+
+border-width: 1px 0px 1px 0px;
+}
+
+
+
+
+
+

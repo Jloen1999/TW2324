@@ -1,0 +1,53 @@
+package es.unex.cum.mdai;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Random;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Parámetros
+ */
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+	private static final long serialVersionUID = 2L;
+	protected void ProcessRequest(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html;charset=UTF-8");		
+		PrintWriter out = response.getWriter();
+		try {
+			String nombre = request.getParameter("login");
+			// Generar un número aleatorio
+			Random r= new Random(new Date().getTime());
+			int valor=r.nextInt();
+			// Simular un falso retardo por la red y el servidor (entre 0 y 3 segundos)
+			Thread.sleep(1000);
+			// El script devuelve alatoriamente 'si' o 'no' para que la aplicación
+			// cliente pueda comprobar los dos casos
+			if (valor % 2 == 0) out.println("-si-:"+nombre); 
+			out.println("-no-"+nombre);
+			System.out.println(valor);
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.print("Error en la ejecución");
+		}
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		ProcessRequest(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		ProcessRequest(request, response);
+	}
+
+}

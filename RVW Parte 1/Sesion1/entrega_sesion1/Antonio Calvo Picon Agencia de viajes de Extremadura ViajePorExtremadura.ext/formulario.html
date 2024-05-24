@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario de reserva</title>   
+        <meta name="description" content="Formulario para Agencia de viajes de Extremadura.">
+        <meta name="author" content="Antonio Calvo Picón">   
+        <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    </head>
+    <body>
+        <h3>Formulario de Reserva</h3>
+        <form action="programacion-cum.unex.es:8080/request.jsp" method="post">
+            <!--He decidido usar el atributo required en los campos que deben rellenarse sin falta ya que una reserva sin nombre, por ejemplo, 
+            -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+        
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required><br><br>
+
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" value="" size="10" maxlength="9" />
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+        
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+        
+            <label for="fecha">Fecha de reserva:</label>
+            <input type="date" id="fecha" name="fecha" required><br><br>
+
+            <label for="hotel">Seleccione un hotel:</label>
+            <select id="hotel" name="hotel" required>
+                <option value="" disabled selected>Seleccione un hotel</option> <!--Al indicar disable selected esta opción se deshabilita, ya 
+                que en este caso no se esta indicando un hotel, solo se indica al usuario que rellene el form que seleccione 1 de los hoteles disponibles-->
+                <option value="hotelCaceres">Parador de Cáceres</option>
+                <option value="hotelTrujillo">Parador de Trujillo</option>
+                <option value="hotelZafra">Parador de Zafra</option>
+                <option value="hotelMerida">Hotel Mérida Medea Affiliated by Meliá</option>
+            </select><br><br>
+        
+            <label for="comentario">Comentario:</label><br>
+            <textarea id="comentario" name="comentario" rows="4" cols="50"></textarea><br><br>
+        
+            <input type="submit" value="Realizar Reserva">
+            <input type="reset" name="limpiar" value="Borrar los datos introducidos" />
+            <br><br><br>
+            <a href="index.html"><-volver a página principal</a>
+        </form>
+    </body>
+    <footer>
+        <p><b><em>Curso 23-24. Tecnologías Webs. Entrega Sesión 1 - Antonio Calvo Picón.</em></b></p>
+    </footer>
+</html>

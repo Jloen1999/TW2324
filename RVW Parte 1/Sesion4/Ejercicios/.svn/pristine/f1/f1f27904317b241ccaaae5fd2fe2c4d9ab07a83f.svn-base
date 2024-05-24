@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Hola Mundo con AJAX, version 2</title>
+
+<script type="text/javascript" language="javascript">
+	var READY_STATE_UNINITIALIZED = 0;
+	var READY_STATE_LOADING = 1;
+	var READY_STATE_LOADED = 2;
+	var READY_STATE_INTERACTIVE = 3;
+	var READY_STATE_COMPLETE = 4;
+
+	var peticion_http;
+
+	
+	window.onload = function() {
+		document.getElementById('ValidarDatos').onclick = descargaArchivo;
+	}
+	
+	function crea_query_string() {
+		var fecha = document.getElementById("fecha_nacimiento");
+		var nombre = document.getElementById("nombre");
+
+		return "fecha_nacimiento=" + encodeURIComponent(fecha.value)
+				+ "&nombre=" + encodeURIComponent(nombre.value)
+				+ "&nocache=" + Math.random();
+	}
+
+	function cargaContenido(url, metodo, funcion) {
+		peticion_http = inicializa_xhr();
+
+		if (peticion_http) {
+			peticion_http.onreadystatechange = funcion;
+			peticion_http.open(metodo, url, true);
+			peticion_http.setRequestHeader("Content-Type",
+					"application/x-www-form-urlencoded");
+			var query_string = crea_query_string();
+			peticion_http.send(query_string);
+		}
+	}
+
+	function inicializa_xhr() {
+		if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		} else if (window.ActiveXObject) {
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+
+	function muestraContenido() {
+		if (peticion_http.readyState == READY_STATE_COMPLETE) {
+			if (peticion_http.status == 200) {
+				document.getElementById("respuesta").innerHTML = peticion_http.responseText;
+			}
+		} else if (peticion_http.readyState == READY_STATE_LOADING) {
+			document.getElementById("respuesta").innerHTML = "Cargando";
+		}
+	}
+
+	function descargaArchivo() {
+		cargaContenido("/EjemploAjax/Parametros","POST", muestraContenido);
+	}
+</script>
+
+</head>
+<body>
+
+	<form>
+		<label for="fecha_nacimiento">Fecha de nacimiento:</label> <input
+			type="text" id="fecha_nacimiento" name="fecha_nacimiento" /><br />
+		<label for="nombre">Nombre:</label> <input type="text" id="nombre"
+			name="nombre" /><br /> <input type="button" id="ValidarDatos" value="ValidarDatos" />
+	</form>
+
+	<div id="respuesta"></div>	
+</body>
+</html>
+

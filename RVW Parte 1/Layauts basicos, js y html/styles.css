@@ -1,0 +1,72 @@
+^/* Estilos Generales */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, aside{
+    background-color: #333;
+    color: white;
+}
+
+/* Menú horizontal */
+.horizontal-menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.horizontal-menu li{
+    border-right: 1px solid #fff;
+}
+
+.horizontal-menu li:last-child {
+    border-right: none; /* Elimina el borde derecho del último elemento */
+}
+
+.horizontal-menu a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.horizontal-menu a:hover {
+    background-color: #575757;
+}
+
+/* Menú vertical */
+.vertical-menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-menu li {
+    border-bottom: 1px solid #fff;
+}
+
+.vertical-menu a{
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover{
+    background-color: #575757;
+}
+
+main {
+    padding: 20px;
+}
+
+#content {
+    margin-left: 200px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}

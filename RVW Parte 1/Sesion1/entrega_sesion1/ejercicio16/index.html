@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 16</title>
+    </head>
+    <body>
+        <h3>Información sobre el producto</h3>
+        <form action="" method="post">
+            <fieldset>
+                <legend>Datos básicos</legend>
+                <br>
+                <label for="name">Nombre</label>
+                <input type="text" name="nombre" id="nombre" size="40" max="80">
+                <br><br>
+                <label for="description">Descripción</label><br>
+                <textarea name="description" id="description" cols="50" rows="5"></textarea>
+                <br><br>
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" />
+                <br><br>
+                <input name="contador" type="checkbox" value="si" /> <label for="visitas">Añadir contador de visitas</label>
+
+            </fieldset>
+            <fieldset>
+                <legend>Datos económicos</legend>
+                <label for="price">Precio </label><input type="number" name="price" id="price" size="5"> €
+                <label for="taxes">Impuestos</label>
+                <select id="taxes" name="taxes">
+                    <option value="4">4%</option>
+                    <option value="7">7%</option>
+                    <option value="16">16%</option>
+                    <option value="25">25%</option>
+                </select>
+                <br><br>
+                <label for="promotion">Promoción</label><br>
+                <input type="radio" name="promotion" value="ninguno" checked="checked" /> Ninguno <br/>
+                <input type="radio" name="promotion" value="portes" /> Transporte gratuito <br/>
+                <input type="radio" name="promotion" value="descuento" /> Descuento 5%
+
+            </fieldset>
+        </form>
+    </body>
+    <footer style="align-content: center;">
+        <p>Curso 23-24. Tecnologías Webs. Ejercicio 16 - Antonio Calvo Picón.</p>
+    </footer>
+</html>

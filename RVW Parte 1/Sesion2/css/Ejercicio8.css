@@ -1,0 +1,60 @@
+:root{
+    --colorprimario: rgb(244, 249, 254);
+    --colortexto: rgb(147, 205, 239);
+    --colorsecund: white;
+    --colortexto2: #87959f;
+    --colorsecundario2: rgb(240, 248, 253);
+    --colorborde: rgb(151, 198, 227);
+    --backcolor: white;
+}
+
+body {
+    color: #000;
+    background: var(--backcolor);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1000px;
+    place-content: center;
+}
+
+table{
+    border: 1px solid var(--colorborde);
+    border-collapse: collapse;
+    caption-side: top;
+    color: var(--colortexto2);
+}
+
+thead{
+    color: var(--colortexto);
+}
+
+tr td{
+  text-align: center;  
+}
+
+th, td{
+    width: 15%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid var(--colorborde);
+    border-collapse: collapse;
+    padding: 0.3em;
+    background: var(--colorprimario)
+}
+
+caption{
+    padding: 0.2em;
+    color: grey;
+}
+.par th{
+    background: var(--colorsecundario2);
+}
+
+.par td{
+    background: var(--colorsecund);
+}
+
+tfoot {
+    color: grey;
+}

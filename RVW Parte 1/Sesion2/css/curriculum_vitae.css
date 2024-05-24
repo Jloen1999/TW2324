@@ -1,0 +1,43 @@
+body { 
+  background-color: #F8F8F8; 
+  color: black; 
+  font-family: sans-serif; 
+  text-align: justify; 
+}
+ h1 { 
+  color: #0B0B0B;
+  font-size: 120%; 
+  text-align: center; 
+  text-transform: uppercase; 
+}
+ h2 { 
+  background-color: #0285E2; 
+  color: #F0E1D1;
+  font-size: 130%; 
+  text-transform: capitalize; 
+}
+ h3 {
+  background-color: #3EA0DD;
+  color: #F0E1D1;
+  font-size: 110%; 
+}
+p { 
+  background-color: #FFF6CD; 
+}
+ address { 
+  background-color: white;
+  font-style: normal; 
+  text-align: right; 
+}
+ em { 
+  color:#A04161; 
+  font-style: normal; 
+  font-weight: bold; 
+  text-decoration: underline; 
+}
+ strong { 
+  color:#DBDB0D; 
+  font-style: normal; 
+  font-weight: normal; 
+}
+  

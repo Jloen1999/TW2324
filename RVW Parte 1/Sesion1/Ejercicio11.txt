@@ -1,0 +1,6 @@
+Su pedido
+Nombre producto 	Precio unitario 	Unidades 	Subtotal
+Reproductor MP3 (80 GB) 	192.02 	1 	192.02
+Fundas de colores 	2.50 	5 	12.50
+Reproductor de radio & control remoto 	12.99 	1 	12.99
+TOTAL 	- 	7 	207.51

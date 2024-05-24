@@ -1,0 +1,30 @@
+
+
+    div {
+        margin: .4em 0;
+    }
+    div label {
+        width: 15%;
+        float: left;
+    }
+
+    input.elegante  {
+        padding: 0 0.2em;
+        }
+        label {
+        display: block;
+        margin: .5em 0 0 0;
+        }
+        .btn {
+        display: block;
+        margin: 1em 0;
+        }
+        form fieldset {
+        float: left;
+        width: 30%;
+        }
+
+        input:focus {
+            border: 2px solid #000;
+            background: #F3F3F3;
+            }

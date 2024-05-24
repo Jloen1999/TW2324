@@ -1,0 +1,113 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+<head>
+	<title>Ejercicio 11 - Formulario de alta</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="./css/Ejercicio11.css" rel="stylesheet" type="text/css" title="screen">
+</head>
+
+<body>
+	<form>
+		<div>
+			<label class="etiqueta" for="username">Nombre:</label>
+			<div>
+				<input type="text" id="username" value="" size="30" />
+			</div>
+		</div>
+		<br>
+		<div>
+			<label class="etiqueta" for="email">Email:</label>
+			<div>
+				<input type="text" id="email" value="" size="30" />
+				<br />
+				<span style="font-size: 80%">*Nota: Debe ser correcto!</span>
+			</div>
+		</div>
+		<br>
+		<div>
+			<label class="etiqueta" for="somehighschool">Educación:</label>
+			<div>
+				<ul style="margin-top:0;">
+					<li>
+						<input type="radio" id="colegio" name="education" value="" />
+						<label for="colegio">Colegio</label>
+					</li>
+					<li>
+						<input type="radio" id="universidad" name="education" value="" />
+						<label for="Universida">Universidad</label>
+					</li>
+					<li>
+						<input type="radio" id="Instituto" name="education" value="" />
+						<label for="Instituto">Some college</label>
+					</li>
+					<li>
+						<input type="radio" id="master" name="education" value="" />
+						<label for="master">Máster</label>
+					</li>
+					<li>
+						<input type="radio" id="otro" name="education" value="" />
+						<label for="otro">Máster</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+			<label class="etiqueta" for="html">Habilidades:</label>
+			<div>
+				<ul style="margin-top:0;">
+					<li>
+						<input type="checkbox" id="html" name="skills" value="" />
+						<label for="html">HTML/ CSS</label>
+					</li>
+					<li>
+						<input type="checkbox" id="javascript" name="skills" value="" />
+						<label for="javascript">JavaScript</label>
+					</li>
+					<li>
+						<input type="checkbox" id="ajax" name="skills" value="" />
+						<label for="ajax">Ajax and XML</label>
+					</li>
+					<li>
+						<input type="checkbox" id="php" name="skills" value="" />
+						<label for="php">PHP and Database</label>
+					</li>
+				</ul>
+				<span style="font-size: 80%">* Rellena cuantos tengas.</span>
+			</div>
+		</div>
+
+		<div>
+			<label class="etiqueta" for="agegroup">Puesto:</label>
+			<div>
+				<select id="agegroup">
+					<option value="2.1">Programador</option>
+					<option value="3">Analista</option>
+					<option value="4.1">Diseñador</option>
+					<option value="5.2">Administrador</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div>
+			<label class="etiqueta" for="about">Información adicional:</label>
+			<div>
+				<textarea id="more"></textarea>
+			</div>
+		</div>
+		<br>
+		<div>
+			<input type="submit" value="Submit" style="margin-left: 150px;" />
+			<input type="reset" value="Reset" />
+		</div>
+
+	</form>
+	<footer style="align-content: center;">
+		<p>Curso 23-24. Tecnologías Webs. Sesión 2 - Ejercicio11 - Antonio Calvo Picón.</p>
+	</footer>
+</body>
+
+</html>

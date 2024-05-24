@@ -1,0 +1,43 @@
+* {
+    margin: 0em;
+    padding: 0em;
+}
+
+h1 {
+    color: maroon;
+}
+
+h2 {
+ color: blue;
+}
+
+h3 {
+   color: black; 
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p span {
+    color: green;
+}
+.aviso {
+    padding: 0.5em;
+    border: 1px solid #98be10;
+    background-color: #f6feda;
+}
+
+.error {
+    color: #930;
+    font-weight: bold;
+}
+
+p.destacado {
+    color: red;
+}
+
+#destacado {
+    color: #98BE10;
+}

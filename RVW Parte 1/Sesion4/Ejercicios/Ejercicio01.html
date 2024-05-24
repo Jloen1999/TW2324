@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hola Mundo con AJAX</title>
+<meta charset="UTF-8"> 
+<script type="text/javascript">
+// Creamos un nuevo XMLHttpRequest
+var xhttp = new XMLHttpRequest();
+
+// Esta es la función que se ejecutará al finalizar la llamada
+xhttp.onreadystatechange = function() {
+    // La respuesta, aunque sea JSON, viene en formato texto, por lo que tendremos que hace run parse
+    //console.log(JSON.parse(this.responseText));
+    document.write(this.responseText);
+};
+
+// Endpoint de la API y método que se va a usar para llamar
+//xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon", true);
+//xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Madrid&appid=14c293857fefc5bfc79ee7cbe354ee57", true);
+xhttp.open("GET", "http://programacion-cum.unex.es/generaContenidos.php", true);
+xhttp.setRequestHeader("Content-type", "application/json");
+// Si quisieramos mandar parámetros a nuestra API, podríamos hacerlo desde el método send()
+xhttp.send(null);
+ 
+
+</script>
+ 
+</head>
+<body>
+
+</body>
+</html>

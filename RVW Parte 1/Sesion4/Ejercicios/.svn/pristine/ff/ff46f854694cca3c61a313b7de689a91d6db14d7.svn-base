@@ -1,0 +1,70 @@
+package es.unex.cum.mdai;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Random;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Parámetros
+ */
+@WebServlet("/LoginJSON")
+public class LoginJSON extends HttpServlet {
+	private static final long serialVersionUID = 2L;
+	protected void ProcessRequest(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html");
+        response.setHeader("Cache-control", "no-cache, no-store");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "-1");
+ 
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.setHeader("Access-Control-Max-Age", "86400");
+		response.setContentType("text/plain");  
+	    response.setCharacterEncoding("UTF-8"); 		
+		PrintWriter out = response.getWriter();
+		try {
+			String nombre = request.getParameter("login");
+			// Generar un número aleatorio
+			Random r= new Random(new Date().getTime());
+			int valor=r.nextInt();
+			// Simular un falso retardo por la red y el servidor (entre 0 y 3 segundos)
+			Thread.sleep(1000);
+			// El script devuelve alatoriamente \"si\" o \"no\" para que la aplicación
+			// cliente pueda comprobar los dos casos
+			String query="{\"resultado\": {\n\"login\": ";
+			if (valor % 2 == 0) {
+				query=query+"\"SI\"";
+			} else {
+				query=query+"\"NO\"";
+			}
+			query=query+",\n\"username\": \""+nombre+"\"}\n}";
+			out.print(query);
+			System.out.println(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.print("Error en la ejecución");
+		}
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		ProcessRequest(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		ProcessRequest(request, response);
+	}
+
+}

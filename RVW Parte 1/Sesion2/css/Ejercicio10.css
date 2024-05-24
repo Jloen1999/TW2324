@@ -1,0 +1,66 @@
+
+input.elegante {
+    padding: 0 0.2em;
+}
+
+label {
+    display: block;
+    margin:  .5em 0 0 0;
+}
+
+legend{
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+}
+legend::after {
+    content: "*";
+    color: red;
+    margin-right: 4px;
+}
+form fieldset{
+    min-height:300px;
+}
+
+form, form fieldset{
+    max-width: 700px;
+    min-width: 320px;
+}
+
+form fieldset {
+    float: left;
+    width: 30%;
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+#alta{
+    margin: 15px;
+    float: right;
+}
+
+/* Cambiar color de fondo al pasar el ratón sobre cada grupo de elementos de formulario */
+form fieldset:hover {
+    background-color: #FF9; /* Amarillo claro */
+}
+
+/* Cambiar el borde del cuadro de texto cuando está activo */
+form input[type="text"]:focus {
+    border:2px solid #E6B700; /* Amarillo */
+}
+
+
+/* Estilo adicional para el botón de enviar */
+form input[type="submit"] {
+    background-color: gray; /* Color azul */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #cacaca; /* Color azul más oscuro al pasar el ratón */
+}
+

@@ -1,0 +1,21 @@
+Menú
+    Inicio
+    Noticias
+        Recientes
+        Más leídas
+        Más valoradas
+    Artículos
+        XHTML
+        CSS
+        JavaScript
+        Otros
+    Contacto
+
+    Email
+        nombre@direccion.com
+    Teléfono
+        900 900 900
+    Fax
+        900 900 900
+
+

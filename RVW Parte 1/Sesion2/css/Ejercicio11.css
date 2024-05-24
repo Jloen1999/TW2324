@@ -1,0 +1,50 @@
+div label.etiqueta{
+    float: left;
+    width: 150px;
+    text-transform: uppercase;
+    border-bottom: 1px solid red;
+    margin-right: 15px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-left: 5px;
+}
+
+
+/*Podriamos usar el siguiente css para hacer que el margin del ul cambie según el tamaño de ventana, pero siempre va a ser 
+como mínimo del 5% + 5px
+
+.etiqueta + div >  ul {
+    margin-left: calc(5% + 5px);
+}*/
+
+textarea{
+    width: 15%;
+    min-width: 150px;
+    min-height: 150px;
+    border-radius: 5px;
+}
+
+input[type=text], input[type=submit], input[type=reset], select{
+    border-radius: 5px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+   accent-color: red;
+}
+
+div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+div > div > input {
+    width: 17em;
+}
+
+div > div > select{
+    margin-top: .5em;
+    width: 10em;
+}

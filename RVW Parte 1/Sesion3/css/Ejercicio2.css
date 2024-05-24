@@ -1,0 +1,22 @@
+ul.navbar {
+    background: #F4F4F4;
+    border: 1px solid #7C7C7C;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul.navbar li{
+    float: left;
+    width: 20%;
+}
+
+ul.navbar li a{
+    border-left: 1px solid #FFF;
+    border-right: 1px solid #7C7C7C;
+    color: #333;
+    display: block;
+    padding: .3em;
+    text-decoration: none;
+}

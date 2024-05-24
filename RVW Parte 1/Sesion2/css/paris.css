@@ -1,0 +1,50 @@
+html { 
+  border-left: solid 15px #CC9933; 
+}
+ body { 
+  background-color: #F4EAD4; 
+  font-family: sans-serif; 
+  padding: 20px 20px 0px 40px; 
+  text-align: justify; 
+}
+ address { 
+  text-align: right; 
+}
+ h1 { 
+  color: #CC9933; 
+  font-size: 300%; 
+  letter-spacing: 60px; 
+  margin: 0px;
+  text-align: center; 
+  text-transform: uppercase; 
+}
+ h2 { 
+  color: #CC9933; 
+  font-variant: small-caps; 
+  letter-spacing: 10px; 
+}
+ hr { 
+  background-color: #CC9933; 
+  clear: both; 
+  color: #CC9933; 
+  height: 5px;
+  text-align: center;  
+  width: 80%; 
+}
+ img { 
+  background-color: #F4EAD4; 
+  border: solid 3px #CC9933; 
+  padding: 5px; 
+}
+ img.i { 
+  float: left;  
+  margin: 0px 20px 10px  0px; 
+}
+ img.d { 
+  float: right; 
+  margin: 0px 0px 10px 20px;  
+}
+ span.subrayado { 
+  border-bottom: #CC9933 5px solid; 
+}
+ 

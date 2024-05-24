@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+	<head>
+		<title>Ejercicio 12 - Formulario de alta</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="./css/Ejercicio10.css" rel="stylesheet" type="text/css" title="screen">
+
+	</head>
+
+	<body>
+		<h2>Formulario de alta</h2>
+		<form method="post" action="#">
+
+			<fieldset class="name">
+				<legend>
+					Nombre y apellidos
+				</legend>
+				<div>
+
+					<input id="nombre" name="nombre" value="" />
+					<label for="nombre">Nombre</label>
+
+					<input id="apellido1" name="apellido1" value="" />
+					<label for="apellido1">Primer apellido</label>
+
+					<input id="apellido2" name="apellido2" value="" />
+					<label for="apellido2">Segundo apellido</label>
+
+					<input id="apellido2" name="email" value="" /> 
+					<label for="apellido2">Email</label>
+				</div>
+			</fieldset>
+			<fieldset class="dir">
+				<legend>
+					Dirección
+				</legend>
+				<div>
+
+					<input id="direccion" name="direccion" value="" />
+					<label for="direccion">Calle, número, piso, puerta</label>
+
+					<input id="codigopostal" name="codigopostal" value="" />
+					<label for="codigopostal">Código postal</label>
+
+					<input id="municipio" name="municipio" value="" />
+					<label for="municipio">Municipio</label>
+
+					<select id="provincia" name="provincia">
+						<option value=""></option>
+						<option value="provincia1">Provincia 1</option>
+						<option value="provincia2">Provincia 2</option>
+						<option value="provincia3">Provincia 3</option>
+					</select>
+					<label for="provincia">Provincia</label>
+
+					<select id="pais" name="pais">
+						<option value=""></option>
+						<option value="pais1">País 1</option>
+						<option value="pais2">País 2</option>
+						<option value="pais3">País 3</option>
+					</select>
+					<label for="pais">País</label>
+				</div>
+
+			</fieldset>
+			<input id="alta" type="submit" value="Darme de alta &rarr;" />
+
+		</form>
+
+	</body>
+</html>
