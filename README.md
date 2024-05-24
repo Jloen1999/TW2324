@@ -43,6 +43,7 @@ id (INT, PRIMARY KEY, AUTO_INCREMENT)
 username (VARCHAR(50), UNIQUE, NOT NULL)  
 
 password (VARCHAR(50), NOT NULL)  
+
 ---
 SQL para crear la base de datos y las tablas:
 
