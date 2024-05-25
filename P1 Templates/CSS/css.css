@@ -9,12 +9,25 @@ body{
 
 .container {
     position: relative;
-    max-width: 430px;
+    max-width: 350px;
     width: 100%;
     background: #fff;
     padding: 34px;
     border-radius: 20px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    margin: auto 5px;
+}
+
+.container2 {
+    display: none;
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    margin: auto 5px;
 }
 
 .container h2{
@@ -23,6 +36,7 @@ body{
     font-weight: 600;
     color: #333;
 }
+
 .container h2::before{
     content: '';
     position: absolute;
@@ -83,11 +97,21 @@ form h3{
     width: 100%;
     text-align: center;
 }
+
 form .text h3 a{
     color: #4070f4;
     text-decoration: none;
 }
-form .text h3 a:hover{
+
+form .text h3 a:hover {
     text-decoration: none;
     color: #0B0B0B;
+}
+
+form .buttons{
+    display: block;
+}
+
+form .buttons button {
+    margin: 5px auto;
 }
