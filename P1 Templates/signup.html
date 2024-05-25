@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="CSS/css.css">
+</head>
+<body>
+<div class="container">
+    <h2>Sign Up Form</h2>
+    <form id="signupForm" action="#">
+        <label for="username">User</label><br>
+        <input id="username" type="text" placeholder="username, name or email...." required><br>
+        <label for="nombre">Name</label><br>
+        <input id="nombre" type="text" placeholder="Antonio, Pepe..." required><br>
+        <label for="apellidos">Surname</label><br>
+        <input id="apellidos" type="text" placeholder="garcía..." required><br>
+        <label for="email">Email</label><br>
+        <input id="email" type="email" placeholder="email@gmail.com" required><br>
+        <label for="password">Password</label><br>
+        <input id="password" type="password" placeholder="*******" required><br>
+        <label for="r_password">Repeat password</label><br>
+        <input id="r_password" type="password" placeholder="*******" required><br>
+        <div class="buttons">
+            <button type="submit">Sign up</button>
+            <button type="reset">Clear Data</button>
+        </div>
+        <div class="text">
+            <h3>Dispones de una cuenta? <a href="#">Login</a></h3>
+        </div>
+    </form>
+</div>
+<div class="container2">
+    <ul id="errorList"></ul>
+</div>
+<script src="JS/validar_datos.js"></script>
+</body>
+</html>
