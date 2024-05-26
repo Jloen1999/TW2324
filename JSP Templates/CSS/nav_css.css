@@ -1,0 +1,31 @@
+nav {
+    height: 80%;
+    width: 80%;
+    background-color: #323232;
+    padding: 10px 0;
+    border-radius: 90px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px auto;
+    padding: 0;
+}
+
+li {
+    margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #B8B8B8;
+}

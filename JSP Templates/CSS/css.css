@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #004C99;
+}
+
+.container {
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin: auto 5px;
+}
+
+.container2 {
+    display: none;
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin: auto 5px;
+}
+
+.container h2 {
+    position: relative;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+}
+
+.container h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    border-radius: 12px;
+    background: #0285E2;
+}
+
+.container form {
+    margin-top: 30px;
+}
+
+.container form input, .container form label {
+    margin: 8px 0;
+}
+
+.container form input {
+    height: 100%;
+    width: 50%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 1em;
+    font-weight: 400;
+    color: #333;
+    border: 2px solid #C7BEBE;
+    border-bottom-width: 3px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.container form input:focus, .container input:valid {
+    border-color: #004C99;
+}
+
+.container form button {
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+    background: #004C99;
+    cursor: pointer;
+    border-radius: 20px;
+    min-height: 30px;
+    min-width: calc(100%);
+}
+
+form button:hover {
+    background: #0e4bf1;
+}
+
+form h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: #333;
+    width: 100%;
+    text-align: center;
+}
+
+form .text h3 a {
+    color: #4070f4;
+    text-decoration: none;
+}
+
+form .text h3 a:hover {
+    text-decoration: none;
+    color: #0B0B0B;
+}
+
+form .buttons {
+    display: block;
+}
+
+form .buttons button {
+    margin: 5px auto;
+}
+
+.foot {
+
+}
