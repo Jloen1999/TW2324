@@ -9,53 +9,19 @@ Desarrollar una aplicación web utilizando Servlets, JDBC y JSP para gestionar u
 #### Requisitos del Proyecto
 **Base de Datos**  
 
-Nombre de la base de datos: BankManagementDB
+Nombre de la base de datos: Banco
 
-Tablas:
+Tablas: Cuentas, transacciones, usuarios y usuarios_cuentas
 
-**accounts**
-id (INT, PRIMARY KEY, AUTO_INCREMENT)  
-
-account_number (VARCHAR(20), UNIQUE, NOT NULL)  
-
-account_holder (VARCHAR(100), NOT NULL)  
-
-balance (DECIMAL(15, 2), NOT NULL)  
-
-created_at (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)  
-
-**transactions**  
-
-id (INT, PRIMARY KEY, AUTO_INCREMENT)  
-
-account_id (INT, NOT NULL, FOREIGN KEY REFERENCES accounts(id))  
-
-amount (DECIMAL(10, 2), NOT NULL)  
-
-transaction_type (VARCHAR(10), NOT NULL)  
-
-transaction_date (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP)  
-
-**admins**  
-
-id (INT, PRIMARY KEY, AUTO_INCREMENT)  
-
-username (VARCHAR(50), UNIQUE, NOT NULL)  
-
-password (VARCHAR(50), NOT NULL)  
-
----
-SQL para crear la base de datos y las tablas:
-
-CREATE DATABASE BancoGestionDB;
 
 ```sql
-use tw;
+CREATE DATABASE BancoGestionDB;
+
+USE BancoGestionDB;
 
 CREATE TABLE cuentas (
   id INT PRIMARY KEY AUTO_INCREMENT,
   numero_cuenta VARCHAR(20) UNIQUE NOT NULL,
-  titular_cuenta VARCHAR(100) NOT NULL,
   saldo DECIMAL(15, 2) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -69,23 +35,43 @@ CREATE TABLE transacciones (
   FOREIGN KEY (id_cuenta) REFERENCES cuentas(id)
 );
 
-CREATE TABLE administradores (
+CREATE TABLE usuarios (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
   contrasena VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE usuarios_cuentas (
+  id_usuario INT NOT NULL,
+  id_cuenta INT NOT NULL,
+  PRIMARY KEY (id_usuario, id_cuenta),
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+  FOREIGN KEY (id_cuenta) REFERENCES cuentas(id)
+);
+
+-- Insertar datos en la tabla usuarios
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('juanp', 'password1');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('mariag', 'password2');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('carloss', 'password3');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('anar', 'password4');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('luisf', 'password5');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('martal', 'password6');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('josem', 'password7');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('laurag', 'password8');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('pedrog', 'password9');
+INSERT INTO usuarios (nombre_usuario, contrasena) VALUES ('carmend', 'password10');
+
 -- Insertar datos en la tabla cuentas
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('1234567890', 'Juan Pérez', 5000.00);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('2345678901', 'María García', 3000.50);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('3456789012', 'Carlos Sánchez', 1200.75);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('4567890123', 'Ana Rodríguez', 9500.00);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('5678901234', 'Luis Fernández', 870.00);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('6789012345', 'Marta López', 15000.00);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('7890123456', 'José Martínez', 2250.25);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('8901234567', 'Laura González', 3400.00);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('9012345678', 'Pedro Gómez', 4100.75);
-INSERT INTO cuentas (numero_cuenta, titular_cuenta, saldo) VALUES ('0123456789', 'Carmen Díaz', 7600.50);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('1234567890', 5000.00);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('2345678901', 3000.50);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('3456789012', 1200.75);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('4567890123', 9500.00);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('5678901234', 870.00);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('6789012345', 15000.00);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('7890123456', 2250.25);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('8901234567', 3400.00);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('9012345678', 4100.75);
+INSERT INTO cuentas (numero_cuenta, saldo) VALUES ('0123456789', 7600.50);
 
 -- Insertar datos en la tabla transacciones
 INSERT INTO transacciones (id_cuenta, monto, tipo_transaccion) VALUES (1, 1500.00, 'depósito');
@@ -99,15 +85,14 @@ INSERT INTO transacciones (id_cuenta, monto, tipo_transaccion) VALUES (8, 100.00
 INSERT INTO transacciones (id_cuenta, monto, tipo_transaccion) VALUES (9, 2000.00, 'retiro');
 INSERT INTO transacciones (id_cuenta, monto, tipo_transaccion) VALUES (10, 500.00, 'depósito');
 
--- Insertar datos en la tabla administradores
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin1', 'password1');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin2', 'password2');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin3', 'password3');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin4', 'password4');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin5', 'password5');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin6', 'password6');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin7', 'password7');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin8', 'password8');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin9', 'password9');
-INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin10', 'password10');
-´´´
+-- Insertar datos en la tabla usuarios_cuentas
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (1, 1);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (2, 2);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (3, 3);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (4, 4);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (5, 5);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (6, 6);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (7, 7);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (8, 8);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (9, 9);
+INSERT INTO usuarios_cuentas (id_usuario, id_cuenta) VALUES (10, 10);
