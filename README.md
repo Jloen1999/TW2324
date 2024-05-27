@@ -111,11 +111,3 @@ INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin8', 'pass
 INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin9', 'password9');
 INSERT INTO administradores (nombre_usuario, contrasena) VALUES ('admin10', 'password10');
 ´´´
-
-CREATE TABLE admins (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  username VARCHAR(50) UNIQUE NOT NULL,
-  password VARCHAR(50) NOT NULL
-);
-
-```
