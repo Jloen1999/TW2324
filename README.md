@@ -15,9 +15,9 @@ Tablas: Cuentas, transacciones, usuarios y usuarios_cuentas
 
 
 ```sql
-CREATE DATABASE BancoGestionDB;
+CREATE DATABASE banco;
 
-USE BancoGestionDB;
+USE banco;
 
 CREATE TABLE cuentas (
   id INT PRIMARY KEY AUTO_INCREMENT,
