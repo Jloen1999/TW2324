@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/testdb" auth="Container"
+		type="javax.sql.DataSource" maxTotal="10" maxIdle="5" maxWait="-1"
+		driverClassName="org.mariadb.jdbc.Driver" url="jdbc:mariadb://localhost:3306/crm" 
+		username="tw" password="tw2223"/>
+</Context>
